@@ -19,7 +19,7 @@ public class RequestStringCallback extends StringCallback {
 
     @Override
     public void onError(Call call, Exception e, int i) {
-        NLog.e("onError===" + e.toString());
+        XLog.e("onError===" + e.toString());
         if (listener != null) {
             listener.onError(e.toString());
         }
@@ -27,7 +27,7 @@ public class RequestStringCallback extends StringCallback {
 
     @Override
     public void onResponse(String s, int id) {
-        NLog.i("onResponse===" + s);
+        XLog.i("onResponse===" + s);
         if (listener != null) {
             listener.onSuccess(s);
         }

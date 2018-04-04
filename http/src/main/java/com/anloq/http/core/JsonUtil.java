@@ -1,7 +1,5 @@
 package com.anloq.http.core;
 
-import android.util.Log;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +24,7 @@ public class JsonUtil {
             JSONObject loginObject = new JSONObject();
             // 通过Map.entrySet遍历key和value"
             for (Map.Entry<String, Object> entry : map.entrySet()) {
-                Log.e("TAG", "key= " + entry.getKey() + " and value= " + entry.getValue());
+                XLog.i("key= " + entry.getKey() + " and value= " + entry.getValue());
                 try {
                     loginObject.put(entry.getKey(), entry.getValue());
                 } catch (JSONException e1) {

@@ -4,15 +4,15 @@ import android.util.Log;
 
 /**
  * Created by xpf on 2017/9/22 :)
- * Function:NLog util.
+ * Function:XLog util.
  */
 
-public class NLog {
+public class XLog {
 
-    private static final String TAG = NLog.class.getSimpleName();
+    private static final String TAG = XLog.class.getSimpleName();
     private static boolean mDebug = true; // default true.
 
-    public NLog() {
+    public XLog() {
     }
 
     public static void isDebug(boolean isDebug) {

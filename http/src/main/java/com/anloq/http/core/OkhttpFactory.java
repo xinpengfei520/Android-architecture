@@ -43,4 +43,21 @@ public class OkhttpFactory {
                 .build()
                 .execute(new RequestStringCallback(listener));
     }
+
+    /**
+     * okhttp post request (overload method).
+     *
+     * @param url
+     * @param json
+     * @param listener
+     */
+    public static void post(String url, String json, ApiRequestListener listener) {
+        OkHttpUtils
+                .postString()
+                .url(url)
+                .content(json)
+                .mediaType(MediaType.parse("application/json; charset=utf-8"))
+                .build()
+                .execute(new RequestStringCallback(listener));
+    }
 }

@@ -16,7 +16,7 @@ public class RequestMethod {
      * @param listener
      */
     public void get(String url, ApiRequestListener listener) {
-        NLog.i("url===" + url);
+        XLog.i("url===" + url);
         OkhttpFactory.get(url, listener);
     }
 
@@ -28,7 +28,19 @@ public class RequestMethod {
      * @param listener
      */
     public void post(String url, HashMap<String, Object> map, ApiRequestListener listener) {
-        NLog.i("url===" + url);
+        XLog.i("url===" + url);
         OkhttpFactory.post(url, map, listener);
+    }
+
+    /**
+     * post (overload method)
+     *
+     * @param url      request url
+     * @param json     post json body
+     * @param listener callback listener
+     */
+    public void post(String url, String json, ApiRequestListener listener) {
+        XLog.i("url===" + url);
+        OkhttpFactory.post(url, json, listener);
     }
 }

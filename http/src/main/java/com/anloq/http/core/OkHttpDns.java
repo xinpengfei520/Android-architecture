@@ -40,7 +40,7 @@ public class OkHttpDns implements Dns {
         String ip = httpDns.getIpByHost(hostname);
         if (ip != null) {
             List<InetAddress> iNetAddresses = Arrays.asList(InetAddress.getAllByName(ip));
-            NLog.i("iNetAddresses:" + iNetAddresses);
+            XLog.i("iNetAddresses:" + iNetAddresses);
             return iNetAddresses;
         }
         return SYSTEM.lookup(hostname);
