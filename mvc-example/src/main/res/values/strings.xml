@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mvc-example</string>
+    <string name="get_beijing_weather">获取北京的天气</string>
 </resources>
