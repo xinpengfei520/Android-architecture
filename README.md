@@ -1,25 +1,62 @@
 # MyArchitecture
 
-MyArchitecture
+MyArchitecture is a project that practise architecture design on Android application develop , anysise eache architecture advantages and disadvantagees.
 
 ## Update log
 
+ - 2018-04-04 complete mvc-example
+ - 2018-04-05 complete mvp-example
 
+## 架构之谈
+
+Android 从最初的MVC到后来的MVP，再到后来的MVVM，还有最近这两年的模块化、插件化及组件化（路由）架构，从其发展演进的历程来看都是本着降低代码耦合、提高代码的复用性和易维护性角度去进行发展的，确实这些架构的演进带给我们的是更高的开发及维护效率，降低了应用开发的难度，网上对于架构的文章更是不绝于耳，甚至是泛滥，对于架构的争论也更是从未停止过。对于每一种架构来说都有其优缺点，所以，每一种架构对于不同的项目来说发挥其作用也是不同的，因此，脱离实际的项目来谈架构实不可取的，每一个项目都有适合它自己的架构，要根据项目的实际情况（业务）去灵活技术选型一种架构或者选择一种架构并对其进行扩展及改进，以便来适用我们自己的项目，我们不要盲目的为了架构而去架构，避免过度设计，切不可生搬硬套！送给大家一句话：没有最好的，只有最适合自己的！哈哈~
+
+下面给大家贴几个微信、美团、安居客架构的演进之路供大家阅读学习：
+
+1. [微信架构演进之路](http://mp.weixin.qq.com/s/mkhCzeoLdev5TyO6DqHEdw)
+2. [美图外卖架构演进](http://mp.weixin.qq.com/s/3cd8zmrFHn149hl-1wIAyQ)
+3. [安居客Android架构演进](http://mp.weixin.qq.com/s/P785VmG06tXM79UPExsgWg)
 
 ## app
 
 ## common
 
+基础公共组件库，包含一些常用工具类、基类抽取等。
+
  - utils
  - base
  - manager
+ - ...
 
 ## http
+
+联网请求的封装库。
 
  - okhttputils
  - okgo
  - retrofit
  - okhttp3.0
+ - ...
+
+## MVC
+
+mvc-example
+
+MVC即Model-View-Controller经典模式，最初是由Web端的MVC演化而来的，即分为三层设计，View对Model的依赖，导致View也包含了业务逻辑，Controller会变的臃肿、复杂，其实这种模式中，对于 **Activity** 严格来说是否属于 **Controller** 层一直以来存在一些争议，项目初期或者项目比较的小的时候用此模式的比较多。
+
+## MVP
+
+mvp-example
+
+MVP即Model-View-Presenter,View被拆成了Presenter和View，真正实现了逻辑处理和View的分离。Model是具体业务的实现，例如访问数据或者网络请求数据等；View层是以接口的形式存在，不关心数据获取，不关心逻辑处理，只关心和用户的交互，即用户的输入和输出的显示；Presenter就是从View层获取用户的输入，传递到Model层进行处理，然后回调给View层，输出展示给用户。
+
+## MVVM
+
+mvvm-example
+
+## TODO
+
+ - mvvm-example
  - ...
 
 blogs:
