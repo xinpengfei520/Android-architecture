@@ -61,6 +61,12 @@ mvvm-example
 
 blogs:
 
+http://mp.weixin.qq.com/s/44caOYjLhCUhBdeR1qCRog
+
+http://mp.weixin.qq.com/s/lJTSLcCtoZQkxzNb1OMzlQ
+
+http://mp.weixin.qq.com/s/apNpcWsB4ujiuqbIdsF-jg
+
 http://mp.weixin.qq.com/s/aRon6QtRuQwlqIZmhZIsOQ
 
 https://blog.csdn.net/zuo_er_lyf/article/details/79742169
