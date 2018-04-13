@@ -3,28 +3,29 @@ package com.xpf.mvp.presenter;
 import android.os.Handler;
 
 import com.xpf.mvp.bean.User;
+import com.xpf.mvp.contract.LoginContract;
 import com.xpf.mvp.model.IUserBusiness;
 import com.xpf.mvp.model.OnLoginListener;
 import com.xpf.mvp.model.UserBusinessImpl;
-import com.xpf.mvp.view.IUserLoginView;
 
 /**
  * Created by xpf on 2018/4/5 :)
  * GitHub:xinpengfei520
- * Function:
+ * Function:Presenter的业务逻辑的具体实现
  */
-public class UserLoginPresenter {
+public class UserLoginPresenter implements LoginContract.IUserLoginPresenter {
 
     private IUserBusiness userBusiness;
-    private IUserLoginView userLoginView;
+    private LoginContract.IUserLoginView userLoginView;
     private Handler mHandler = new Handler();
 
     // Presenter必须要能拿到View和Model的实现类
-    public UserLoginPresenter(IUserLoginView userLoginView) {
+    public UserLoginPresenter(LoginContract.IUserLoginView userLoginView) {
         this.userLoginView = userLoginView;
         this.userBusiness = new UserBusinessImpl();
     }
 
+    @Override
     public void login() {
         userLoginView.showLoading();
         userBusiness.login(userLoginView.getUserName(), userLoginView.getPassword(), new OnLoginListener() {
@@ -52,6 +53,7 @@ public class UserLoginPresenter {
         });
     }
 
+    @Override
     public void clear() {
         userLoginView.clearUserName();
         userLoginView.clearPassword();

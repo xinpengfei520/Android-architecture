@@ -61,6 +61,8 @@ mvvm-example
 
 blogs:
 
+http://mp.weixin.qq.com/s/DuNbl3V4gZY-ZCETbhZGug
+
 http://mp.weixin.qq.com/s/44caOYjLhCUhBdeR1qCRog
 
 http://mp.weixin.qq.com/s/lJTSLcCtoZQkxzNb1OMzlQ
@@ -68,6 +70,8 @@ http://mp.weixin.qq.com/s/lJTSLcCtoZQkxzNb1OMzlQ
 http://mp.weixin.qq.com/s/apNpcWsB4ujiuqbIdsF-jg
 
 http://mp.weixin.qq.com/s/aRon6QtRuQwlqIZmhZIsOQ
+
+http://lib.csdn.net/article/android/55568?knId=340
 
 https://blog.csdn.net/zuo_er_lyf/article/details/79742169
 
@@ -86,3 +90,6 @@ https://www.jianshu.com/p/578893cde5e1
 https://www.jianshu.com/p/389c9ae1a82c
 
 https://mp.weixin.qq.com/s?__biz=MzIyMjQ0MTU0NA==&mid=2247485288&idx=2&sn=7fbfdf5c7f63cb41f2c49b3c83860f8b&chksm=e82c3e4fdf5bb75904c1b70e5862fbca982860a7dbc8907d0222e134b1094561c5df6eaec2b4&scene=21#wechat_redirect
+
+RecyclerView adapter封装：
+https://blog.csdn.net/qq_22706515/article/details/50997446

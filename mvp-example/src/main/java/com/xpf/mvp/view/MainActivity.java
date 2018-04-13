@@ -1,4 +1,4 @@
-package com.xpf.mvp;
+package com.xpf.mvp.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,21 +8,23 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.xpf.mvp.R;
 import com.xpf.mvp.bean.User;
+import com.xpf.mvp.contract.LoginContract;
 import com.xpf.mvp.presenter.UserLoginPresenter;
-import com.xpf.mvp.view.IUserLoginView;
 
-public class MainActivity extends AppCompatActivity implements IUserLoginView {
+public class MainActivity extends AppCompatActivity implements LoginContract.IUserLoginView {
 
     private EditText etUserName, etPassword;
     private Button btnClear, btnLogin;
     private ProgressBar progressBar;
-    private UserLoginPresenter mUserLoginPresenter = new UserLoginPresenter(this);
+    private LoginContract.IUserLoginPresenter mUserLoginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mUserLoginPresenter = new UserLoginPresenter(this);
         initView();
         initListener();
     }
