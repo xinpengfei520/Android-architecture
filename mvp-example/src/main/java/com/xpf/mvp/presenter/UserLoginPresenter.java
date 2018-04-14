@@ -20,8 +20,8 @@ public class UserLoginPresenter implements LoginContract.IUserLoginPresenter {
     private Handler mHandler = new Handler();
 
     // Presenter必须要能拿到View和Model的实现类
-    public UserLoginPresenter(LoginContract.IUserLoginView userLoginView) {
-        this.userLoginView = userLoginView;
+    public UserLoginPresenter(LoginContract.IUserLoginView view) {
+        this.userLoginView = view;
         this.userBusiness = new UserBusinessImpl();
     }
 

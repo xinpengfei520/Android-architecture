@@ -9,6 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.xpf.mvp.R;
+import com.xpf.mvp.base.BasePresenter;
+import com.xpf.mvp.base.MVPCompatActivity;
 import com.xpf.mvp.bean.User;
 import com.xpf.mvp.contract.LoginContract;
 import com.xpf.mvp.presenter.UserLoginPresenter;
@@ -93,4 +95,5 @@ public class MainActivity extends AppCompatActivity implements LoginContract.IUs
         Toast.makeText(this,
                 "login failed!", Toast.LENGTH_SHORT).show();
     }
+
 }

@@ -1,6 +1,7 @@
 package com.xpf.mvp;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 /**
@@ -10,9 +11,16 @@ import android.util.Log;
  */
 public class MVPApplication extends Application {
 
+    private static Context mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         Log.i("TAG", "MVPApplication onCreate()");
+    }
+
+    public static Context getAppContext() {
+        return mContext;
     }
 }
