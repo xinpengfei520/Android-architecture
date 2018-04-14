@@ -1,5 +1,6 @@
 package com.xpf.mvp.base;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 
@@ -8,7 +9,7 @@ import android.os.PersistableBundle;
  * GitHub:xinpengfei520
  * Function:MVP Activity的基类
  */
-public abstract class MVPCompatActivity<T extends BasePresenter> extends RootActivity {
+public abstract class MVPCompatActivity<T extends BasePresenter> extends Activity {
 
     protected T mPresenter;
 

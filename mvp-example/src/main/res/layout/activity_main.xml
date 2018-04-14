@@ -6,40 +6,20 @@
     android:orientation="vertical"
     tools:context=".view.MainActivity">
 
-    <EditText
-        android:id="@+id/etUserName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="UserName" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password" />
-
     <Button
-        android:id="@+id/btnClear"
+        android:id="@+id/btnProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Clear"
+        android:text="Show User Profile"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btnLogin"
+    <TextView
+        android:id="@+id/tvProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="Login"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:visibility="gone" />
+        android:gravity="center"
+        android:text=""
+        android:textSize="20sp" />
 
 </LinearLayout>
