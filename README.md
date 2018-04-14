@@ -54,6 +54,14 @@ MVP即Model-View-Presenter,View被拆成了Presenter和View，真正实现了逻
 
 mvvm-example
 
+## 组件化(Router)架构
+
+架构图：
+
+![image](https://github.com/xinpengfei520/MyArchitecture/blob/master/image/router_architecher.png)
+
+声明：以上图片来自网络，仅供学习参考之用，如有侵权，请联系我删除，谢谢！
+
 ## TODO
 
  - mvvm-example
