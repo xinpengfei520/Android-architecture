@@ -67,7 +67,7 @@ mvvm-example
  - mvvm-example
  - ...
 
-blogs:
+## 更多关于MVP的文章
 
 http://mp.weixin.qq.com/s/DuNbl3V4gZY-ZCETbhZGug
 
@@ -101,3 +101,106 @@ https://mp.weixin.qq.com/s?__biz=MzIyMjQ0MTU0NA==&mid=2247485288&idx=2&sn=7fbfdf
 
 RecyclerView adapter封装：
 https://blog.csdn.net/qq_22706515/article/details/50997446
+
+TheMvp:
+https://www.kymjs.com/code/2015/11/09/01/
+
+androidmvp:
+https://github.com/antoniolg/androidmvp
+
+MvpApp:
+https://github.com/Rukey7/MvpApp
+
+MVPArms:
+https://github.com/JessYanCoding/MVPArms
+
+T-MVP:
+https://github.com/north2016/T-MVP
+
+MvpCleanArchitecture:
+https://github.com/glomadrian/MvpCleanArchitecture
+
+android-mvp-architecture:
+https://github.com/MindorksOpenSource/android-mvp-architecture
+
+XDroidMvp:
+https://github.com/limedroid/XDroidMvp
+
+KotlinMvp:
+https://github.com/git-xuhao/KotlinMvp
+
+AndroidMVPSample:
+https://github.com/WuXiaolong/AndroidMVPSample
+
+SuperMvp:
+https://github.com/liuyanggithub/SuperMvp
+
+MVPAndroidBootstrap:
+https://github.com/richardradics/MVPAndroidBootstrap
+
+MVP-RxJava-Hybride:
+https://github.com/youxin11544/MVP-RxJava-Hybride
+
+EasyMVP:
+https://github.com/6thsolution/EasyMVP
+
+android-mvp-pattern:
+https://github.com/kaedea/android-mvp-pattern
+
+MVPArt:
+https://github.com/JessYanCoding/MVPArt
+
+Beam:
+https://github.com/Jude95/Beam
+
+mosby：
+https://github.com/sockeqwe/mosby
+
+Moxy:
+https://github.com/Arello-Mobile/Moxy
+
+## MVP开源练习项目
+
+### ZhiHuMVP
+
+https://github.com/fangx/ZhiHuMVP
+
+### ColorfulNews
+
+https://github.com/kaku2015/ColorfulNews
+
+### boxing
+
+https://github.com/Bilibili/boxing
+
+### MinimalistWeather
+
+https://github.com/BaronZ88/MinimalistWeather
+
+### TranslateApp
+
+https://github.com/maoruibin/TranslateApp
+
+### Ghost
+
+https://github.com/GeekGhost/Ghost
+
+### GeekNews
+
+https://github.com/codeestX/GeekNews
+
+### MovieGuide
+
+https://github.com/esoxjem/MovieGuide
+
+### SimpleNews
+
+https://github.com/liuling07/SimpleNews
+
+### Toutiao
+
+https://github.com/iMeiji/Toutiao
+
+### PhotoNoter
+
+https://github.com/yydcdut/PhotoNoter
