@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.IU
     @Override
     public void toMainActivity(User user) {
         Toast.makeText(this, user.getUserName() +
-                " login success , to LoginActivity", Toast.LENGTH_SHORT).show();
+                " login success , to MainActivity", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
         LoginActivity.this.finish();
     }

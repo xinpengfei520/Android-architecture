@@ -50,6 +50,14 @@ mvp-example
 
 MVP即Model-View-Presenter,View被拆成了Presenter和View，真正实现了逻辑处理和View的分离。Model是具体业务的实现，例如访问数据或者网络请求数据等；View层是以接口的形式存在，不关心数据获取，不关心逻辑处理，只关心和用户的交互，即用户的输入和输出的显示；Presenter就是从View层获取用户的输入，传递到Model层进行处理，然后回调给View层，输出展示给用户。
 
+优点：
+
+- Activity 的职责更为明确；
+- 代码结构清晰，易于维护；
+- 方便进行单元测试；
+- 可以有效解决Activity的内存泄漏；
+- 可以进行多人协同、分层开发；
+
 ## MVVM
 
 mvvm-example

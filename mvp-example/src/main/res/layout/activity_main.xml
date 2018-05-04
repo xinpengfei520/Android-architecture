@@ -22,4 +22,11 @@
         android:text=""
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/btnListPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ListViewPager"
+        android:textAllCaps="false" />
+
 </LinearLayout>

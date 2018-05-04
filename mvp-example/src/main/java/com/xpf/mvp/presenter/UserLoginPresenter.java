@@ -2,8 +2,7 @@ package com.xpf.mvp.presenter;
 
 import com.xpf.mvp.bean.User;
 import com.xpf.mvp.contract.LoginContract;
-import com.xpf.mvp.model.IUserBusiness;
-import com.xpf.mvp.model.OnLoginListener;
+import com.xpf.mvp.listener.OnLoginListener;
 import com.xpf.mvp.model.UserBusinessImpl;
 import com.xpf.mvp.utils.UIUtils;
 
@@ -14,7 +13,7 @@ import com.xpf.mvp.utils.UIUtils;
  */
 public class UserLoginPresenter implements LoginContract.IUserLoginPresenter {
 
-    private IUserBusiness userBusiness;
+    private LoginContract.IUserBusiness userBusiness;
     private LoginContract.IUserLoginView userLoginView;
 
     // Presenter必须要能拿到View和Model的实现类

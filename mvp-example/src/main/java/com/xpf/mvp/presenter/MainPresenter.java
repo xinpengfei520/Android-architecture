@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.xpf.mvp.base.BasePresenter;
 import com.xpf.mvp.contract.MainContract;
+import com.xpf.mvp.listener.OnProfileListener;
 import com.xpf.mvp.model.MainBusinessModel;
 import com.xpf.mvp.utils.UIUtils;
 
@@ -44,7 +45,7 @@ public class MainPresenter extends BasePresenter implements MainContract.IMainPr
     @Override
     public void getProfile() {
         Log.i(TAG, "getProfile()");
-        model.getProfile(new MainBusinessModel.OnProfileListener() {
+        model.getProfile(new OnProfileListener() {
             @Override
             public void onSuccess(final String profile) {
                 UIUtils.getHandler().post(new Runnable() {

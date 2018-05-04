@@ -1,13 +1,15 @@
 package com.xpf.mvp.model;
 
 import com.xpf.mvp.bean.User;
+import com.xpf.mvp.contract.LoginContract;
+import com.xpf.mvp.listener.OnLoginListener;
 
 /**
  * Created by xpf on 2018/4/5 :)
  * GitHub:xinpengfei520
  * Function:用户登录业务的具体实现类
  */
-public class UserBusinessImpl implements IUserBusiness {
+public class UserBusinessImpl implements LoginContract.IUserBusiness {
 
     @Override
     public void login(final String userName, final String password, final OnLoginListener listener) {
