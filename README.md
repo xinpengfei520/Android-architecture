@@ -1,4 +1,4 @@
-# MyArchitecture
+# Android-architecture
 
 MyArchitecture is a project that practise architecture design on Android application develop , anysise eache architecture advantages and disadvantagees.
 
