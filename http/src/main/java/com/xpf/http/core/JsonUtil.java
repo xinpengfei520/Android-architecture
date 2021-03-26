@@ -1,4 +1,4 @@
-package com.anloq.http.core;
+package com.xpf.http.core;
 
 import org.json.JSONException;
 import org.json.JSONObject;

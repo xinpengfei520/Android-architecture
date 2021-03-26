@@ -1,4 +1,4 @@
-package com.anloq.http.core;
+package com.xpf.http.core;
 
 /**
  * Created by xpf on 2017/9/22 :)

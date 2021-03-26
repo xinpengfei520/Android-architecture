@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.xpf.mvc.R;
 import com.xpf.mvc.bean.WeatherBean;
 import com.xpf.mvc.model.OnWeatherListener;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements OnWeatherListener
     private Button btnRequest;
     private TextView tvResult;
     private WeatherModel mWeatherModel;
-    private String cityNumber = "101010100";
+    private static final String CITY_NUMBER = "101010100";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements OnWeatherListener
         btnRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mWeatherModel.getWeather(cityNumber, MainActivity.this);
+                mWeatherModel.getWeather(CITY_NUMBER, MainActivity.this);
             }
         });
     }
@@ -46,9 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnWeatherListener
     @Override
     public void onSuccess(WeatherBean weather) {
         if (weather != null) {
-            WeatherBean.WeatherinfoBean weatherinfo = weather.getWeatherinfo();
-            String content = weatherinfo.getCity() + "\n" + weatherinfo.getIsRadar() +
-                    "\n" + weatherinfo.getNjd() + "\n" + weatherinfo.getQy();
+            String content = new Gson().toJson(weather);
             tvResult.setText(content);
         }
     }

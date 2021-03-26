@@ -1,4 +1,4 @@
-package com.anloq.http.core;
+package com.xpf.http.core;
 
 import java.util.HashMap;
 
@@ -7,7 +7,7 @@ import java.util.HashMap;
  * Function:request method.
  */
 
-public class RequestMethod {
+public class Api {
 
     /**
      * get
@@ -15,7 +15,7 @@ public class RequestMethod {
      * @param url
      * @param listener
      */
-    public void get(String url, ApiRequestListener listener) {
+    public static void get(String url, ApiRequestListener listener) {
         XLog.i("url===" + url);
         OkhttpFactory.get(url, listener);
     }
@@ -27,7 +27,7 @@ public class RequestMethod {
      * @param map
      * @param listener
      */
-    public void post(String url, HashMap<String, Object> map, ApiRequestListener listener) {
+    public static void post(String url, HashMap<String, Object> map, ApiRequestListener listener) {
         XLog.i("url===" + url);
         OkhttpFactory.post(url, map, listener);
     }
@@ -39,7 +39,7 @@ public class RequestMethod {
      * @param json     post json body
      * @param listener callback listener
      */
-    public void post(String url, String json, ApiRequestListener listener) {
+    public static void post(String url, String json, ApiRequestListener listener) {
         XLog.i("url===" + url);
         OkhttpFactory.post(url, json, listener);
     }

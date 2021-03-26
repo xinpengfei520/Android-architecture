@@ -1,4 +1,4 @@
-package com.anloq.http;
+package com.xpf.http;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
