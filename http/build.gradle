@@ -26,6 +26,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.0'
     testImplementation 'junit:junit:4.12'
     implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation files('libs/alicloud-android-sdk-httpdns-1.0.10.jar')
     implementation files('libs/alicloud-android-utils-1.0.1.jar')
 }

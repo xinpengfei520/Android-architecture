@@ -10,9 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -26,12 +24,19 @@ import okhttp3.OkHttpClient;
 
 public class ApiClient {
 
-    private static final ApiClient instance = new ApiClient();
+    private static volatile ApiClient instance = null;
 
     private ApiClient() {
     }
 
     public static ApiClient getInstance() {
+        if (instance == null) {
+            synchronized (ApiClient.class) {
+                if (instance == null) {
+                    instance = new ApiClient();
+                }
+            }
+        }
         return instance;
     }
 
@@ -50,18 +55,20 @@ public class ApiClient {
      * @param context
      */
     private void initOkhttpClient(Context context) {
-        if (context == null) return;
+        if (context == null) {
+            return;
+        }
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(10000L, TimeUnit.MILLISECONDS)
                 .readTimeout(10000L, TimeUnit.MILLISECONDS)
                 .dns(OkHttpDns.getInstance(context))
-                .hostnameVerifier(new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String hostname, SSLSession session) {
-                        return hostname.contains("anloq.com");// 替换为自己api的域名
-                    }
-                })
-                .sslSocketFactory(getSSLSocketFactory())
+//                .hostnameVerifier(new HostnameVerifier() {
+//                    @Override
+//                    public boolean verify(String hostname, SSLSession session) {
+//                        return hostname.contains("x-sir.com");// 替换为自己api的域名
+//                    }
+//                })
+//                .sslSocketFactory(getSSLSocketFactory())
                 .build();
 
         OkHttpUtils.initClient(okHttpClient);
