@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.xpf.mvvm.viewmodel.NewsViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="@{viewModel.viewStyle.progressRefreshing?View.VISIBLE:View.GONE}" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:setRefreshing="@{viewModel.viewStyle.isRefreshing}"
+            bind:layout_behavior="@string/appbar_scrolling_view_behavior"
+            bind:onRefreshCommand="@{viewModel.onRefreshCommand}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                bind:itemBinding="@{viewModel.itemView}"
+                bind:items="@{viewModel.itemViewModel}"
+                bind:layout_behavior="@string/appbar_scrolling_view_behavior"
+                bind:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </FrameLayout>
+
+</layout>

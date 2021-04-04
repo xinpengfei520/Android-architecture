@@ -18,6 +18,17 @@ allprojects {
         google()
         jcenter()
     }
+    // It can solved error: AAPT: error: resource android:attr/dialogCornerRadius not found.
+    subprojects {
+        afterEvaluate {
+            project ->
+                if (project.hasProperty("android")) {
+                    android {
+                        compileSdkVersion = 28
+                    }
+                }
+        }
+    }
 }
 
 task clean(type: Delete) {
