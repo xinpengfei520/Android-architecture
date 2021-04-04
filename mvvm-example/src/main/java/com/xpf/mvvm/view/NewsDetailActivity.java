@@ -1,6 +1,7 @@
 package com.xpf.mvvm.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -18,18 +19,21 @@ import com.xpf.mvvm.viewmodel.NewsDetailViewModel;
 
 public class NewsDetailActivity extends RxAppCompatActivity {
 
+    private static final String TAG = "NewsDetailActivity";
     public static final String EXTRA_KEY_NEWS_ID = "key_news_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         long id = getIntent().getLongExtra(EXTRA_KEY_NEWS_ID, -1);
+        Log.e(TAG, "NewsDetailActivity onCreate() -> id:" + id);
+
         ViewDataBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_news_detail);
         binding.setVariable(BR.viewModel, new NewsDetailViewModel(this, id));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar==null) {
+        if (actionBar == null) {
             setSupportActionBar(toolbar);
         }
 

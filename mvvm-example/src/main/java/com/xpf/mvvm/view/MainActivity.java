@@ -71,6 +71,10 @@ public class MainActivity extends RxAppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        setFragment();
+    }
+
+    private void setFragment() {
         NewsListFragment fragment = new NewsListFragment();
         getFragmentManager().beginTransaction()
                 .replace(R.id.content, fragment)
@@ -115,10 +119,7 @@ public class MainActivity extends RxAppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_gallery) {
-//            NewsListFragment fragment = new NewsListFragment();
-//            getFragmentManager().beginTransaction()
-//                    .replace(R.id.content, fragment)
-//                    .commit();
+            setFragment();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

@@ -2,7 +2,7 @@ package com.xpf.mvvm.helper;
 
 import android.util.Log;
 
-import com.xpf.mvvm.net.ApiException;
+import com.xpf.mvvm.net.exception.ApiException;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,4 +1,4 @@
-package com.xpf.mvvm.net;
+package com.xpf.mvvm.net.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -8,6 +8,7 @@ import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.xpf.mvvm.net.exception.ApiException;
 
 import java.io.IOException;
 

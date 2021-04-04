@@ -10,8 +10,8 @@ import com.xpf.mvvm.base.ViewModel;
 import com.xpf.mvvm.bean.NewsDetailBean;
 import com.xpf.mvvm.command.ReplyCommand;
 import com.xpf.mvvm.net.RetrofitProvider;
-import com.xpf.mvvm.net.ToStringConverter;
-import com.xpf.mvvm.service.NewsDetailService;
+import com.xpf.mvvm.net.converter.ToStringConverter;
+import com.xpf.mvvm.net.service.ApiService;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -27,7 +27,8 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 
 /**
- * Created by kelin on 16-4-28.
+ * Created by x-sir on 3/27/21 :)
+ * Function:
  */
 public class NewsDetailViewModel implements ViewModel {
 
@@ -67,7 +68,7 @@ public class NewsDetailViewModel implements ViewModel {
 
     private void loadData(long id) {
         Observable<Notification<NewsDetailBean>> newsDetailOb =
-                RetrofitProvider.getInstance().create(NewsDetailService.class)
+                RetrofitProvider.getInstance().create(ApiService.class)
                         .getNewsDetail(id)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -75,7 +76,7 @@ public class NewsDetailViewModel implements ViewModel {
                         .materialize().share();
 
         newsDetailOb.filter(Notification::isOnNext)
-                .map(n -> n.getValue())
+                .map(Notification::getValue)
                 .doOnNext(m -> newsDetail = m)
                 .subscribe(m -> loadHtmlCss(m.getCss()));
     }
@@ -109,14 +110,14 @@ public class NewsDetailViewModel implements ViewModel {
 //                .subscribe(s -> initViewModelField());
     }
 
-
     private void initViewModelField() {
         viewStyle.isRefreshing.set(false);
         imageUrl.set(newsDetail.getImage());
         Observable.just(newsDetail.getBody())
                 .map(s -> s + "<style type=\"text/css\">" + newsDetail.getCssStr())
                 .map(s -> s + "</style>")
-                .subscribe(s -> html.set(s));
+                .subscribe(html::set);
+
         title.set(newsDetail.getTitle());
     }
 }

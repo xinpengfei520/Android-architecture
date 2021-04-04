@@ -20,8 +20,7 @@ import com.xpf.mvvm.command.ReplyCommand;
 import com.xpf.mvvm.helper.NewsListHelper;
 import com.xpf.mvvm.messenger.Messenger;
 import com.xpf.mvvm.net.RetrofitProvider;
-import com.xpf.mvvm.service.NewsService;
-import com.xpf.mvvm.service.TopNewsService;
+import com.xpf.mvvm.net.service.ApiService;
 import com.xpf.mvvm.utils.AppUtils;
 
 import java.util.Calendar;
@@ -114,7 +113,7 @@ public class NewsViewModel implements ViewModel {
         viewStyle.isRefreshing.set(true);
 
         Observable<Notification<NewsBean>> newsListOb =
-                RetrofitProvider.getInstance().create(NewsService.class)
+                RetrofitProvider.getInstance().create(ApiService.class)
                         .getNewsList(date)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
@@ -140,12 +139,12 @@ public class NewsViewModel implements ViewModel {
         viewStyle.isRefreshing.set(true);
 
         Observable<TopNewsBean> topNewsOb =
-                RetrofitProvider.getInstance().create(TopNewsService.class)
+                RetrofitProvider.getInstance().create(ApiService.class)
                         .getTopNewsList()
                         .compose(((LifecycleProvider) fragment).bindToLifecycle());
 
         Observable<NewsBean> newsListOb =
-                RetrofitProvider.getInstance().create(NewsService.class)
+                RetrofitProvider.getInstance().create(ApiService.class)
                         .getNewsList(date)
                         .compose(((LifecycleProvider) fragment).bindToLifecycle());
 

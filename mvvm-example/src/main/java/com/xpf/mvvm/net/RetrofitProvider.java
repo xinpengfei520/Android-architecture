@@ -2,6 +2,7 @@ package com.xpf.mvvm.net;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.xpf.mvvm.net.factory.ApiTypeAdapterFactory;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;

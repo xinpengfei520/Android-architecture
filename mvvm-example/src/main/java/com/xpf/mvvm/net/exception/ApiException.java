@@ -1,4 +1,4 @@
-package com.xpf.mvvm.net;
+package com.xpf.mvvm.net.exception;
 
 import java.io.IOException;
 
