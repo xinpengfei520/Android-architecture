@@ -10,7 +10,6 @@ import retrofit2.http.GET;
  * Function:
  */
 public interface TopNewsService {
-
     @GET("/api/4/news/latest")
     Observable<TopNewsBean> getTopNewsList();
 }

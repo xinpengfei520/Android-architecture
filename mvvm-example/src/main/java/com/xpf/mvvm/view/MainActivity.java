@@ -22,6 +22,7 @@ import com.trello.rxlifecycle4.components.support.RxAppCompatActivity;
 import com.viewpagerindicator.CirclePageIndicator;
 import com.xpf.mvvm.BR;
 import com.xpf.mvvm.R;
+import com.xpf.mvvm.fragment.NewsListFragment;
 import com.xpf.mvvm.messenger.Messenger;
 import com.xpf.mvvm.utils.AlphaForegroundColorSpan;
 import com.xpf.mvvm.utils.ViewUtils;
@@ -70,10 +71,10 @@ public class MainActivity extends RxAppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-//        NewsListFragment fragment = new NewsListFragment();
-//        getFragmentManager().beginTransaction()
-//                .replace(R.id.content, fragment)
-//                .commit();
+        NewsListFragment fragment = new NewsListFragment();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.content, fragment)
+                .commit();
     }
 
     @Override

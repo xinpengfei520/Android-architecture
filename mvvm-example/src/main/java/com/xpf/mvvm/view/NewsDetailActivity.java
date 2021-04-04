@@ -5,6 +5,7 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
@@ -25,13 +26,19 @@ public class NewsDetailActivity extends RxAppCompatActivity {
         long id = getIntent().getLongExtra(EXTRA_KEY_NEWS_ID, -1);
         ViewDataBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_news_detail);
         binding.setVariable(BR.viewModel, new NewsDetailViewModel(this, id));
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar==null) {
+            setSupportActionBar(toolbar);
+        }
+
+        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedText);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedTitleText);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        WebView webView = (WebView) findViewById(R.id.webview);
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        WebView webView = findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
     }

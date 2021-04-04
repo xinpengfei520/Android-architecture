@@ -1,6 +1,7 @@
 package com.xpf.mvvm.viewmodel;
 
 import android.app.Fragment;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.util.Pair;
@@ -39,6 +40,7 @@ import me.tatarka.bindingcollectionadapter2.OnItemBind;
  */
 public class NewsViewModel implements ViewModel {
 
+    private static final String TAG = "NewsViewModel";
     public static final String TOKEN_TOP_NEWS_FINISH = "token_top_news_finish" + AppUtils.getPackageName(App.getAppContext());
     private Fragment fragment;
     private NewsBean news;
@@ -102,7 +104,10 @@ public class NewsViewModel implements ViewModel {
         Observable.just(Calendar.getInstance())
                 .doOnNext(c -> c.add(Calendar.DAY_OF_MONTH, 1))
                 .map(c -> NewsListHelper.DAY_FORMAT.format(c.getTime()))
-                .subscribe(d -> loadTopNews(d));
+                .subscribe(this::loadTopNews, throwable -> {
+                    String message = throwable.getMessage();
+                    Log.e(TAG, "NewsViewModel accept() -> message:" + message);
+                });
     }
 
     private void loadNewsList(String date) {
@@ -127,10 +132,8 @@ public class NewsViewModel implements ViewModel {
                 .flatMap(m -> Observable.fromIterable(m.getStories()))
                 .subscribe(i -> itemViewModel.add(new NewItemViewModel(fragment.getActivity(), i)));
 
-
         NewsListHelper.dealWithResponseError(newsListOb.filter(Notification::isOnError)
-                .map(n -> n.getError()));
-
+                .map(Notification::getError));
     }
 
     private void loadTopNews(String date) {
@@ -146,22 +149,20 @@ public class NewsViewModel implements ViewModel {
                         .getNewsList(date)
                         .compose(((LifecycleProvider) fragment).bindToLifecycle());
 
-
         Observable<Notification<Pair<TopNewsBean, NewsBean>>> combineRequestOb = Observable.combineLatest(topNewsOb, newsListOb, Pair::new)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .materialize().share();
 
-
         combineRequestOb.filter(Notification::isOnNext)
-                .map(n -> n.getValue())
+                .map(Notification::getValue)
                 .map(p -> p.first)
                 .filter(m -> !m.getTop_stories().isEmpty())
                 .doOnNext(m -> Observable.just(NewsListHelper.isTomorrow(date)).filter(b -> b).subscribe(b -> itemViewModel.clear()))
                 .subscribe(m -> Messenger.getDefault().send(m, TOKEN_TOP_NEWS_FINISH));
 
         combineRequestOb.filter(Notification::isOnNext)
-                .map(n -> n.getValue())
+                .map(Notification::getValue)
                 .map(p -> p.second).filter(m -> !m.getStories().isEmpty())
                 .doOnNext(m -> news = m)
                 .flatMap(m -> Observable.fromIterable(m.getStories()))
@@ -173,8 +174,7 @@ public class NewsViewModel implements ViewModel {
         });
 
         NewsListHelper.dealWithResponseError(combineRequestOb.filter(Notification::isOnError)
-                .map(n -> n.getError()));
-
+                .map(Notification::getError));
     }
 
 }

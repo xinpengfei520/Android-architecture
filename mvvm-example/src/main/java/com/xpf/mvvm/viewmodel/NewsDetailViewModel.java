@@ -24,7 +24,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 
 /**
  * Created by kelin on 16-4-28.
@@ -48,12 +48,10 @@ public class NewsDetailViewModel implements ViewModel {
         public final ObservableBoolean progressRefreshing = new ObservableBoolean(true);
     }
 
-    //data
     public final ObservableField<String> imageUrl = new ObservableField<>();
     public final ObservableField<String> html = new ObservableField<>();
     public final ObservableField<String> title = new ObservableField<>();
     public final ViewStyle viewStyle = new ViewStyle();
-
 
     //command
     public final ReplyCommand onRefreshCommand = new ReplyCommand<>(() -> {
@@ -85,7 +83,7 @@ public class NewsDetailViewModel implements ViewModel {
     private void loadHtmlCss(List<String> urls) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://news-at.zhihu.com/")
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(new Converter.Factory() {
                     @Override
                     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {

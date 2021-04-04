@@ -11,7 +11,6 @@ import retrofit2.http.Path;
  * Function:
  */
 public interface NewsService {
-
     @GET("/api/4/news/before/{date}")
     Observable<NewsBean> getNewsList(@Path("date") String date);
 }

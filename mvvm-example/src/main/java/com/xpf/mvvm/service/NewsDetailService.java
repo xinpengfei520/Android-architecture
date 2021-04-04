@@ -12,5 +12,5 @@ import retrofit2.http.Path;
  */
 public interface NewsDetailService {
     @GET("/api/4/news/{id}")
-    public Observable<NewsDetailBean> getNewsDetail(@Path("id") long id);
+    Observable<NewsDetailBean> getNewsDetail(@Path("id") long id);
 }
