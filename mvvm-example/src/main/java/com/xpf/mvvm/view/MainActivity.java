@@ -34,6 +34,8 @@ public class MainActivity extends RxAppCompatActivity
     private AlphaForegroundColorSpan alphaForegroundColorSpan;
     private SpannableString actionBarTitleSpan;
 
+    // TODO: 4/5/21 ① 处理 ViewPager 的指示器；② 处理为何显示两个 ProgressBar
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

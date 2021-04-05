@@ -30,12 +30,12 @@
         </FrameLayout>
 
         <TextView
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="25dp"
-            android:gravity="start"
-            android:lineSpacingExtra="5dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
             android:padding="20dp"
             android:shadowColor="#80000000"
             android:shadowDx="-1"
