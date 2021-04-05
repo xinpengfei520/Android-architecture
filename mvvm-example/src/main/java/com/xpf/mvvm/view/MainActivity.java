@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -48,15 +48,12 @@ public class MainActivity extends RxAppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null) {
-            setSupportActionBar(toolbar);
-            actionBar.setDisplayShowTitleEnabled(true);
-        }
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         navigationView.setNavigationItemSelectedListener(this);
         barLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
-            int height = appBarLayout.getHeight() - actionBar.getHeight() - ViewUtils.getStatusBarHeight(MainActivity.this);
+            int height = appBarLayout.getHeight() - getSupportActionBar().getHeight() - ViewUtils.getStatusBarHeight(MainActivity.this);
             int alpha = 255 * (-verticalOffset) / height;
             collapsingToolbarLayout.setExpandedTitleColor(Color.argb(0, 255, 255, 255));
             collapsingToolbarLayout.setCollapsedTitleTextColor(Color.argb(alpha, 255, 255, 255));
@@ -83,7 +80,7 @@ public class MainActivity extends RxAppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -107,6 +104,7 @@ public class MainActivity extends RxAppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "设置", Toast.LENGTH_SHORT).show();
             return true;
         }
 

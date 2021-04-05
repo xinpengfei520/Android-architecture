@@ -1,5 +1,6 @@
 package com.xpf.mvvm.view;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ public class NewsDetailActivity extends RxAppCompatActivity {
     private static final String TAG = "NewsDetailActivity";
     public static final String EXTRA_KEY_NEWS_ID = "key_news_id";
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +34,15 @@ public class NewsDetailActivity extends RxAppCompatActivity {
         binding.setVariable(BR.viewModel, new NewsDetailViewModel(this, id));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null) {
-            setSupportActionBar(toolbar);
-        }
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedText);
         collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedTitleText);
-
-        actionBar.setDisplayHomeAsUpEnabled(true);
         WebView webView = findViewById(R.id.webview);
+
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
     }

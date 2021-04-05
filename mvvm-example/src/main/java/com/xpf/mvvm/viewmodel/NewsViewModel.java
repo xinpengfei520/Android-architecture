@@ -124,7 +124,7 @@ public class NewsViewModel implements ViewModel {
                 .map(n -> n.getValue())
                 .filter(m -> !m.getStories().isEmpty())
                 .doOnNext(m -> Observable.just(m.getDate()).map(d -> new NewsBean.StoriesBean.ExtraField(true, d))
-                        .map(d -> new NewsBean.StoriesBean(d))
+                        .map(NewsBean.StoriesBean::new)
                         .subscribe(d -> itemViewModel.add(new NewItemViewModel(fragment.getActivity(), d))))
                 .doOnNext(m -> news = m)
                 .doAfterTerminate(() -> viewStyle.isRefreshing.set(false))

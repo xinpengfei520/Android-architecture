@@ -11,6 +11,11 @@
 
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="ExpandedText" parent="@android:style/TextAppearance.Medium">
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">#ffffff</item>
