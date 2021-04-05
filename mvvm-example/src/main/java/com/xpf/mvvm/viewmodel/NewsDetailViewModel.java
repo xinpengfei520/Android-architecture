@@ -11,21 +11,14 @@ import com.xpf.mvvm.base.ViewModel;
 import com.xpf.mvvm.bean.NewsDetailBean;
 import com.xpf.mvvm.command.ReplyCommand;
 import com.xpf.mvvm.net.RetrofitProvider;
-import com.xpf.mvvm.net.converter.ToStringConverter;
 import com.xpf.mvvm.net.service.ApiService;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Notification;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import okhttp3.ResponseBody;
-import retrofit2.Converter;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 
 /**
  * Created by x-sir on 3/27/21 :)
@@ -86,20 +79,11 @@ public class NewsDetailViewModel implements ViewModel {
 
     private void loadHtmlCss(List<String> urls) {
         Log.e(TAG, "loadHtmlCss() -> urls:" + urls);
-        final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://news-at.zhihu.com")
-                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-                .addConverterFactory(new Converter.Factory() {
-                    @Override
-                    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-                        return new ToStringConverter();
-                    }
-                }).build();
 
         Observable.fromIterable(urls)
                 .flatMap(s -> {
                     Observable<Notification<String>> observable =
-                            retrofit.create(ApiService.class)
+                            RetrofitProvider.getInstance().create(ApiService.class)
                                     .getNewsDetailCss(s)
                                     .subscribeOn(Schedulers.io())
                                     .observeOn(AndroidSchedulers.mainThread())
