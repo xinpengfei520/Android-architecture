@@ -1,8 +1,9 @@
 package com.xpf.mvp.listviewpager.view;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.ListView;
+
+import androidx.annotation.Nullable;
 
 import com.xpf.mvp.R;
 import com.xpf.mvp.base.MvpBaseActivity;

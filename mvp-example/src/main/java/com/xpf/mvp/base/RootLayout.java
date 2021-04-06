@@ -1,9 +1,10 @@
 package com.xpf.mvp.base;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by xpf on 2018/4/13 :)

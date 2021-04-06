@@ -1,6 +1,7 @@
 package com.xpf.http.core;
 
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;

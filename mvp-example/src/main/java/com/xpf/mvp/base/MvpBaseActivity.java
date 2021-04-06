@@ -2,7 +2,8 @@ package com.xpf.mvp.base;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 /**
  * Created by xpf on 2018/5/4 :)
